@@ -1,7 +1,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_BOARD_PLATFORM),moorefield)
+ifneq ($(filter $(TARGET_BOARD_PLATFORM),moorefield merrifield clovertrail),)
 
 include $(CLEAR_VARS)
 LOCAL_COPY_HEADERS := \
@@ -22,4 +22,4 @@ LOCAL_COPY_HEADERS := \
     DRM/cc54/inc/wv_mod_oem_crypto.h
 include $(BUILD_COPY_HEADERS)
 
-endif # ifeq ($(TARGET_BOARD_PLATFORM),moorefield)
+endif # ifneq ($(filter $(TARGET_BOARD_PLATFORM),moorefield merrifield clovertrail),)
