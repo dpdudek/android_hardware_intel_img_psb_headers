@@ -81,7 +81,7 @@ typedef struct _vbp_codec_data_mp42
     // bit rate
     int bit_rate;
 
-#ifndef ASUS_ZENFONE2_LP_BLOBS
+#if !defined(ASUS_ZENFONE2_LP_BLOBS) && !defined(MIXVBP_KK_BLOBS)
     // indicate if vol is received
     uint8 got_vol;
     // indicate if vop is received
@@ -95,12 +95,14 @@ typedef struct _vbp_slice_data_mp42
     uint32 slice_offset;
     uint32 slice_size;
     VASliceParameterBufferMPEG4 slice_param;
+#ifndef MIXVBP_KK_BLOBS
     uint8* cur_frame_addr;
 #ifndef ASUS_ZENFONE2_LP_BLOBS
     uint8* forward_ref_addr;
     uint8* backward_ref_addr;
     uint32_t pic_stride;
     uint32_t pic_height;
+#endif
 #endif
 } vbp_slice_data_mp42;
 
@@ -220,7 +222,7 @@ typedef struct _vbp_codec_data_h264
     uint8 constraint_set2_flag;
     uint8 constraint_set3_flag;
     uint8 constraint_set4_flag;
-#ifndef ASUS_ZENFONE2_LP_BLOBS
+#if !defined(ASUS_ZENFONE2_LP_BLOBS) && !defined(MIXVBP_KK_BLOBS)
     uint8 constraint_set5_flag;
 #endif
 
@@ -421,8 +423,10 @@ typedef struct _vbp_codec_data_vp8
     uint8 version_num;
     int show_frame;
 
+#ifndef MIXVBP_KK_BLOBS
     /* color space type specification */
     int clr_type;
+#endif
 
     uint32 frame_width;
     uint32 frame_height;
