@@ -1,7 +1,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq (,$(filter $(TARGET_BOARD_PLATFORM),moorefield clovertrail))
+ifneq (,$(filter $(TARGET_BOARD_PLATFORM),moorefield merrifield clovertrail))
 
 include $(CLEAR_VARS)
 LOCAL_COPY_HEADERS := \
